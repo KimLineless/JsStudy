@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이벤트리스너</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="alert_box" id="alert">
+      <p id="txt">아이디를 입력하세요</p>
+      <button id="close">닫기</button>
+    </div>
+    <button onclick="alertOpen('block')" id="btn1">버튼1</button>
+    <button onclick="alertOpen('block')" id="btn">버튼2</button>
+
+    <script>
+      function alertOpen(t) {
+        document.getElementById('alert').style.display = t;
+      }
+
+      // 파라미터 문법 예제2
+
+      // function plus(i) {
+      //   2 + i;
+      // }
+
+      // plus(i);
+
+      //
+
+      document.getElementById('close').addEventListener('click', function () {
+        document.getElementById('alert').style.display = 'none';
+      });
+
+      document.getElementById('btn').addEventListener('click', function () {
+        document.getElementById('txt').innerHTML = '비밀번호를 입력하세요';
+      });
+      document.getElementById('btn1').addEventListener('click', function () {
+        document.getElementById('txt').innerHTML = '아이디를 입력하세요';
+      });
+    </script>
+  </body>
+</html>
