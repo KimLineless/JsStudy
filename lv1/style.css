@@ -3,6 +3,11 @@
   padding: 0;
   margin: 0;
 }
+
+body.dark {
+  background-color: black;
+  color: #fff;
+}
 .alert_box {
   background-color: skyblue;
   padding: 20px;
