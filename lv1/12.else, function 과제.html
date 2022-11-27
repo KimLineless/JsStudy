@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>과제</title>
+  </head>
+  <body>
+    <script>
+      // 369과제
+      function 삼육구게임(num) {
+        if ((num % 10) % 3 == 0) {
+          console.log('짝');
+        } else {
+          console.log('땡');
+        }
+      }
+      삼육구게임(19);
+
+      // 시험점수 함수
+      function 합격(a, b) {
+        if (a < 40 || b < 40) {
+          console.log('불합격입니다');
+        } else if (a > 100 || b > 100) {
+          console.log('거짓말');
+        } else if (a + b > 120) {
+          console.log('합격입니다');
+        } else {
+          console.log('불합격입니다');
+        }
+      }
+
+      합격(40, 100);
+    </script>
+  </body>
+</html>
