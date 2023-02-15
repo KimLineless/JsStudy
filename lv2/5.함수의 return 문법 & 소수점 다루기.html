@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>정규식으로 이메일형식 검증해보기</title>
+    <title>함수의 return 문법 & 소수점 다루기</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -27,7 +27,9 @@
           <div class="my-3">
             <input type="password" class="form-control" id="password" />
           </div>
-          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="submit" class="btn btn-primary" id="send">
+            로그인
+          </button>
           <button type="button" class="btn btn-danger" id="close">닫기</button>
         </form>
       </div>
@@ -131,8 +133,6 @@
       <button id="login" class="btn btn-danger">로그인</button>
     </div>
 
-    <button class="test_modal">모달버튼</button>
-
     <div class="alert alert-danger pop">
       <span class="num">5</span> 초 이내 구매시 사은품 증정!
     </div>
@@ -152,12 +152,94 @@
     </script>
 
     <script>
-      $('.test_modal').on('click', function () {
+      $('#login').on('click', function () {
         $('.black-bg').addClass('show-modal');
       });
-      $('.btn').on('click', function () {
+      $('#close').on('click', function () {
         $('.black-bg').removeClass('show-modal');
       });
+    </script>
+
+    <div class="slide">
+      <ul class="slide-con">
+        <li class="slide-box"><img src="../img/car1.png" alt="" /></li>
+        <li class="slide-box"><img src="../img/car2.png" alt="" /></li>
+        <li class="slide-box"><img src="../img/car3.png" alt="" /></li>
+      </ul>
+    </div>
+    <div class="btn-con">
+      <button class="btn1">1</button>
+      <button class="btn2">2</button>
+      <button class="btn3">3</button>
+      <button class="next">다음</button>
+      <button class="prev">이전</button>
+    </div>
+    <script>
+      document.querySelector('.btn2').addEventListener('click', function () {
+        $('.slide-con').css('transform', 'translateX(-100vw)');
+      });
+      document.querySelector('.btn1').addEventListener('click', function () {
+        $('.slide-con').css('transform', 'translateX(0)');
+      });
+      document.querySelector('.btn3').addEventListener('click', function () {
+        $('.slide-con').css('transform', 'translateX(-200vw)');
+      });
+    </script>
+
+    <script>
+      let 지금사진 = 1;
+      let 지금사진2 = 1;
+
+      $('.next').on('click', function () {
+        $('.slide-con').css('transform', 'translateX(-' + 지금사진 + '00vw )');
+        지금사진++;
+        지금사진 > 4;
+      });
+
+      $('.prev').on('click', function () {
+        if (지금사진2 == 1) {
+          지금사진2++;
+          $('.slide-con').css('transform', 'translateX(-200vw)');
+        } else if (지금사진2 == 2) {
+          지금사진2++;
+          $('.slide-con').css('transform', 'translateX(-100vw)');
+        } else if (지금사진2 == 3) {
+          지금사진2 -= 2;
+          $('.slide-con').css('transform', 'translateX(0vw)');
+        }
+      });
+    </script>
+
+    <script>
+      function vat(a) {
+        let num = (a * 0.1 * 0.3 * 0.6).toFixed(1);
+        return parseFloat(num);
+      }
+      console.log(vat(3000));
+      console.log(vat(4000));
+
+      console.log(vat(5551));
+
+      // 파리미터세기
+
+      function min(m, s) {
+        return m * 60000 + s * 1000;
+      }
+
+      console.log(min(1, 30));
+      console.log(min(2, 10));
+
+      // 가격을 파라미터로 입력하면 10%할인가를 뱉는 함수
+      function sale(p, v) {
+        let result = p * 0.9;
+        if (v == true) {
+          result = result - 1.5;
+        }
+        return parseFloat(result.toFixed(1));
+      }
+      console.log(sale(70, false));
+      console.log(sale(10, true));
+      console.log(sale(10.3, true));
     </script>
 
     <script
