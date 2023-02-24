@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>스크롤 이벤트로 만드는 재밌는 기능들</title>
+    <title>이벤트 버블링과 이벤트관련 함수들</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
@@ -50,6 +50,19 @@
       } else if (3 == 3) {
         console.log('맞아요2');
       }
+
+      // e.target; 유저가 실제로 누른거
+      // e.currentTarget; 이벤트리스너 달린곳
+      // e.preventDefault();
+      // e.stopPropagation();
+
+      document
+        .querySelector('.black-bg')
+        .addEventListener('click', function (e) {
+          if (e.target == document.querySelector('.black-bg')) {
+            document.querySelector('.black-bg').classList.remove('show-modal');
+          }
+        });
 
       $('form').on('submit', function (e) {
         if (document.getElementById('email').value == '') {
